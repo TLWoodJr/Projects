@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VendingMachine.Exceptions;
 
 
 
@@ -114,16 +115,18 @@ namespace CapStone
                         Console.ReadKey();
                     }
                     //2. Write this message if there is not enough money in vm.CurrentBalance
-                    catch (InvalidOperationException)
+                    catch (InsufficientFundsException)
+                    
                     {
                         Console.WriteLine("Not enough money. Press any key to continue, then feed machine more money to buy that item.");
                         Console.ReadKey();
                     }
                     //3. Write this message if the item is sold out
-                    catch (Exception)
+                    catch (SoldOutException)
                     {
                         Console.WriteLine("That item is sold out.");
-                        Console.ReadKey();                    }
+                        Console.ReadKey();
+                    }
                 }
                 else if (key == '3')
                 {
@@ -144,12 +147,11 @@ namespace CapStone
             Console.Clear();
             Console.WriteLine("Enter amount to feed: $");
             decimal money = decimal.Parse(Console.ReadLine());
-            if (money == 1M || money == 2M || money == 5M || money == 10M)
+            try
             {
-                Log.WriteFeedMoney(VendingMachine, money);
                 VendingMachine.FeedMoney(money);
             }
-            else
+            catch(BadBillException)
             {
                 Console.WriteLine("Invalid Bill");
                 Console.ReadKey();
@@ -158,22 +160,19 @@ namespace CapStone
         }
 
         private void SelectProduct()
-        {            Console.Clear();
+        {
+            Console.Clear();
             foreach (var item in VendingMachine.Inventory)
             {
                 Console.WriteLine($"{item.Key.PadRight(3, ' ')} " +
-                                    $"{item.Value.Name.PadRight(23, ' ')} " +
-                                    $"{item.Value.Price.ToString("C").PadRight(10, ' ')}" +
-                                    $"{item.Value.DisplayQty}");
+                                  $"{item.Value.Name.PadRight(23, ' ')} " +
+                                  $"{item.Value.Price.ToString("C").PadRight(10, ' ')}" +
+                                  $"{item.Value.DisplayQty}");
             }
             Console.WriteLine();
             Console.Write("Enter Product Code: ");
             string userProductCode = Console.ReadLine().ToUpper();
-            //Calls method in VendingMachine.cs
-            //This method will:
-            //Confirm product code, makes sure it's not sold out, and subtracts its price from current balance.
-            //Writes sale to log
-            Log.WriteProductSelect(VendingMachine, userProductCode);
+            
             VendingMachine.ProductSelect(userProductCode);
             // Prints out the item that was selected
             Console.WriteLine($"Dispensing: {VendingMachine.Inventory[userProductCode].Name}");
@@ -182,8 +181,6 @@ namespace CapStone
 
         private void FinishTransaction()
         {
-            Log.WriteGiveChange(VendingMachine);
-
             Change chg = VendingMachine.ReturnChange();
             
             Console.Clear();

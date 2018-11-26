@@ -1,0 +1,6 @@
+C:\Users\woodt\OneDrive\Documents\GitHub\Projects\Vending Machine\VendingMachine\bin\Debug\VendingMachine.dll
+C:\Users\woodt\OneDrive\Documents\GitHub\Projects\Vending Machine\VendingMachine\bin\Debug\VendingMachine.pdb
+C:\Users\woodt\OneDrive\Documents\GitHub\Projects\Vending Machine\VendingMachine\obj\Debug\VendingMachine.csproj.CoreCompileInputs.cache
+C:\Users\woodt\OneDrive\Documents\GitHub\Projects\Vending Machine\VendingMachine\obj\Debug\VendingMachine.dll
+C:\Users\woodt\OneDrive\Documents\GitHub\Projects\Vending Machine\VendingMachine\obj\Debug\VendingMachine.pdb
+C:\Users\woodt\OneDrive\Documents\GitHub\Projects\Vending Machine\VendingMachine\obj\Debug\VendingMachine.csprojAssemblyReference.cache

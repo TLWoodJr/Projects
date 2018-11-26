@@ -1,0 +1,10 @@
+C:\Users\woodt\OneDrive\Documents\GitHub\Projects\Vending Machine\VendingMachineCLI\obj\Debug\VendingMachineCLI.csprojAssemblyReference.cache
+C:\Users\woodt\OneDrive\Documents\GitHub\Projects\Vending Machine\VendingMachineCLI\obj\Debug\VendingMachineCLI.csproj.CoreCompileInputs.cache
+C:\Users\woodt\OneDrive\Documents\GitHub\Projects\Vending Machine\VendingMachineCLI\bin\Debug\VendingMachineCLI.exe.config
+C:\Users\woodt\OneDrive\Documents\GitHub\Projects\Vending Machine\VendingMachineCLI\bin\Debug\VendingMachineCLI.exe
+C:\Users\woodt\OneDrive\Documents\GitHub\Projects\Vending Machine\VendingMachineCLI\bin\Debug\VendingMachineCLI.pdb
+C:\Users\woodt\OneDrive\Documents\GitHub\Projects\Vending Machine\VendingMachineCLI\bin\Debug\VendingMachine.dll
+C:\Users\woodt\OneDrive\Documents\GitHub\Projects\Vending Machine\VendingMachineCLI\bin\Debug\VendingMachine.pdb
+C:\Users\woodt\OneDrive\Documents\GitHub\Projects\Vending Machine\VendingMachineCLI\obj\Debug\VendingMachineCLI.csproj.CopyComplete
+C:\Users\woodt\OneDrive\Documents\GitHub\Projects\Vending Machine\VendingMachineCLI\obj\Debug\VendingMachineCLI.exe
+C:\Users\woodt\OneDrive\Documents\GitHub\Projects\Vending Machine\VendingMachineCLI\obj\Debug\VendingMachineCLI.pdb

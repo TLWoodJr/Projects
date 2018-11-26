@@ -5,16 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using CapStone;
+using VendingMachine.Exceptions;
 
 namespace CapStone
 {
     //vendingmachine.csv
     public class VendingMachine
     {
-        //constants for Qtr, Nick, Dime
-        
         public List<MachineItem> _purchaseList = new List<MachineItem>();
-        //Access machine items with slot names ex "A1, B2, C3"
         public Dictionary<string, MachineItem> Inventory = new Dictionary<string, MachineItem>();
         public decimal CurrentBalance { get; private set; } = 0;
         public Report Report { get; }
@@ -24,8 +22,9 @@ namespace CapStone
         public VendingMachine()
         {
 
-            string filePath = Environment.CurrentDirectory;
-            string fullPath = Path.Combine(filePath, "vendingmachine.csv");
+            string currentDirectory = Environment.CurrentDirectory;
+            string navigateToEtc = Path.Combine(currentDirectory, @"..\..\..\etc\");
+            string fullPath = Path.Combine(navigateToEtc, "vendingmachine.csv");
             
 
             using (StreamReader sr = new StreamReader(fullPath))
@@ -56,19 +55,19 @@ namespace CapStone
             Report = new Report(Inventory);
 
         }
-        //dictionary that is type <string: machineItem>
-        //when manipulating vending machine dictionary: dictvm[slot].qty-=1;
-        //<{{A1: chip(name = "PotatoeCrisps")},
-        //Have constructor
-        //Constructor takes in vendingmachin.csv
-        //Creates items as it reads down the file
-        //string[] line = sr.Readline.Split('|');
-        //4 x if (line[3] == category);
-        //vmdict[slot] = new Chip(name, price);
-        //var temp = new Chip();
+        
         public void FeedMoney(decimal money)
         {
-            CurrentBalance += money;
+            if (money == 1M || money == 2M || money == 5M || money == 10M)
+            {
+                Log.WriteFeedMoney(this, money);
+                CurrentBalance += money;
+            }
+            else
+            {
+                throw new BadBillException();
+            }
+                
         }
         /// <summary>
         /// Sells item assigned to <paramref name="key"/> and subtracts it from CurrentBalance.
@@ -76,6 +75,7 @@ namespace CapStone
         /// <param name="key">Key in Inventory represented by slot code</param>
         public void ProductSelect(string key)
         {
+            Log.WriteProductSelect(this, key);
             MachineItem mi = Inventory[key];
             if (!mi.SoldOut)
             {
@@ -89,12 +89,12 @@ namespace CapStone
                 }
                 else
                 {
-                    throw new InvalidOperationException();
+                    throw new InsufficientFundsException();
                 }
             }
             else
             {
-                throw new Exception();
+                throw new SoldOutException();
             }
         }
 
@@ -102,6 +102,7 @@ namespace CapStone
 
         public Change ReturnChange()
         {
+            Log.WriteGiveChange(this);
             Change change = new Change(CurrentBalance);
             CurrentBalance = 0;
             return change;

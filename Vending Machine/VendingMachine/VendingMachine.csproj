@@ -45,6 +45,9 @@
     <Compile Include="Change.cs" />
     <Compile Include="Chip.cs" />
     <Compile Include="Drink.cs" />
+    <Compile Include="Exceptions\BadBillException.cs" />
+    <Compile Include="Exceptions\InsufficientFundsException.cs" />
+    <Compile Include="Exceptions\SoldOutException.cs" />
     <Compile Include="Gum.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="MachineItem.cs" />
