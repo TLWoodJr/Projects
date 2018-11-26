@@ -20,7 +20,7 @@ namespace CapStone
         }
 
         /// <summary>
-        /// Start Vending Machine
+        /// This starts the vending machine
         /// </summary>
         public void MainMenu()
         {
@@ -174,6 +174,7 @@ namespace CapStone
             string userProductCode = Console.ReadLine().ToUpper();
             
             VendingMachine.ProductSelect(userProductCode);
+            // Prints out the item that was selected
             Console.WriteLine($"Dispensing: {VendingMachine.Inventory[userProductCode].Name}");
             Console.ReadKey();    
         }

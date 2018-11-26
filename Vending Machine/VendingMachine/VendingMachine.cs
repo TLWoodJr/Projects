@@ -16,7 +16,6 @@ namespace CapStone
         public Dictionary<string, MachineItem> Inventory = new Dictionary<string, MachineItem>();
         public decimal CurrentBalance { get; private set; } = 0;
         public Report Report { get; }
-
         /// <summary>
         /// 
         /// </summary>
@@ -70,7 +69,6 @@ namespace CapStone
             }
                 
         }
-
         /// <summary>
         /// Sells item assigned to <paramref name="key"/> and subtracts it from CurrentBalance.
         /// </summary>
