@@ -1,0 +1,16 @@
+﻿@model List<Capstone.Web.Models.ParksHomeViewModel>
+
+@*View that creates HTML for Home/Index page showing all parks*@
+
+<div class="@*debug*@ listcontainer">
+    @foreach (var park in Model)
+    {
+        <div class=" indexparkinfo">
+        <a href="/Home/Details?parkCode=@(park.ParkCode)"><img class="@*debug*@ indexpic" src="~/Content/Imgs/parks/@(park.ParkCode).jpg"></a>
+        <div class="@*debug*@ indexname">@park.Name</div>
+        <div class="@*debug*@ indexdescrip">@park.Description</div>
+        </div>
+    }
+</div>
+
+

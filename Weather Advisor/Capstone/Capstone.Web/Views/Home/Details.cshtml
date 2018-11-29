@@ -1,0 +1,64 @@
+﻿@model Capstone.Web.Models.DetailViewModel
+
+@*View that creates HTML for park details page and weather report*@
+
+<div class="debug parkinfo">
+    <div class="debug name">@Model.Park.ParkName</div>
+    <div class="debug picandtext">
+            <img class="debug detailpic" src="~/Content/Imgs/parks/@(Model.Park.ParkCode).jpg" />
+        <div class="textcontainer">
+            <div class="debug state">State: @Model.Park.State</div>
+            <div class="debug description">@Model.Park.ParkDescription</div>
+            <div class="debug acreage">Park Acreage: @Model.Park.Acreage.ToString("N0")</div>
+            <div class="debug elevation">Park Elevation: @Model.Park.Elevation.ToString("N0") ft. above sea level</div>
+            <div class="debug trail">Miles of Trails: @Model.Park.MilesOfTrail.ToString("N1")</div>
+            <div class="debug camp">Number of Campsites: @Model.Park.NumberOfCampsites.ToString("N0")</div>
+            <div class="debug climate">Climate: @Model.Park.Climate</div>
+            <div class="debug animal">Number of Animal Species: @Model.Park.NumberOfAnimalSpecies.ToString("N0")</div>
+            <div class="debug year">Year Founded: @Model.Park.YearFounded</div>
+            <div class="debug visitor">Annual Visitor Count: @Model.Park.AnnualVisitorCount.ToString("N0")</div>
+            <div class="debug fee">Entry Fee @Model.Park.EntryFee.ToString("C")</div>
+            <div class="debug quote">@Model.Park.InspirationalQuote</div>
+            <div class="debug quotesource">-@Model.Park.InspirationalQuoteSource</div>
+        </div>
+    </div>
+
+    <a name="weathersection"></a>
+    <div class="debug allweather">
+        <div class="weathertitle">
+            <h1>Weather Report</h1>
+            <form method="get" action="@Url.Action("SetTempPreference", "Home")">
+                <select name="preference">
+                    <option value="Fahrenheit">
+                        Fahrenheit
+                    </option>
+                    <option value="Celsius">
+                        Celsius
+                    </option>
+                </select>
+                <button>Set Preference</button>
+            </form>
+        </div>
+        <div class="debug forecast">
+            <div class="debug todayweather">
+                <h3 align="center">Today</h3>
+                <img align="middle" class="debug todayimg" src="~/Content/Imgs/weather/@(Model.FiveDayForecast[0].Forecast).png" />
+                <div class="debug todaytemp"><span>High: <span class="tempbox">@Model.FiveDayForecast[0].DisplayHigh((string)Session["TemperaturePreference"])</span></span> <span>&nbsp;&nbsp;&nbsp;Low: <span class="tempbox">@Model.FiveDayForecast[0].DisplayLow((string)Session["TemperaturePreference"])</span></span></div>
+                <div class="debug advisory">@Model.FiveDayForecast[0].GetAdvisory()</div>
+            </div>
+            <div class="futureweather debug">
+                @for (int i = 1; i < Model.FiveDayForecast.Count; i++)
+                {
+                    <div class="debug babyweathercontainer">
+                        <div>Day @Model.FiveDayForecast[i].FiveDayForecastValue</div>
+                        <img class="futureimg debug" src="~/Content/Imgs/weather/@(Model.FiveDayForecast[i].Forecast).png">
+                        <div class="futurehi">High: <span class="tempbox">@Model.FiveDayForecast[i].DisplayHigh((string)Session["TemperaturePreference"]) </span></div>
+                        <div class="futurelow">Low: &nbsp;<span class="tempbox">@Model.FiveDayForecast[i].DisplayLow((string)Session["TemperaturePreference"]) </span></div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+</div>
+<a name="end"></a>

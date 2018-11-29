@@ -1,0 +1,274 @@
+﻿
+body {
+    background-image:url("Imgs/movingfield.jpg");
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-size:100%;
+    font-family: sans-serif;
+}
+
+.debug {
+    /*border: solid red;*/
+}
+
+#headerbackground {
+    background-color: rgba(249, 124, 31, 0.94);
+}
+
+.listcontainer {
+    margin-top: 20px;
+}
+
+.indexparkinfo {
+    margin: auto;
+    margin-top: 15px;
+    width: 75%;
+    min-width: 900px;
+    padding-right: 10px;
+    background-color: rgba(255,255,255,.40);
+    border-radius: 15px;
+}
+
+.indexpic {
+    display: inline-block;
+    position: relative;
+    min-width: 150px;
+    max-width: 350px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.indexname {
+    display: inline-block;
+    position: absolute;
+    font-weight: bolder;
+    font-size: 25px;
+    min-width: 350px;
+    margin-left: 20px;
+    padding-top: 5px;
+    color: black
+}
+
+.indexdescrip {
+    display: inline-block;
+    position: absolute;
+    padding-top: 30px;
+    margin-right: 125px;
+    min-width: 450px;
+    max-width: 600px;
+    margin-left: 20px;
+    margin-top: 15px;
+    color: black
+}
+
+/*-------------------DETAILS-------------------------*/
+.parkinfo {
+    margin-top: 20px;
+    /*background-color: rgba(255,255,255,.40);*/
+    border-radius: 15px;
+}
+
+.picandtext {
+    display:flex;
+    align-items:flex-start;
+    flex-wrap:nowrap;
+    min-width: 600px;
+    margin: auto;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.detailpic {
+    margin-top: 15px;
+    border-radius: 20px;
+    display: block;
+    text-align: center;
+}
+
+.textcontainer {
+    margin-top: 15px;
+    margin-left: 5px;
+    border-radius: 15px;
+    background-color: rgba(255,255,255,.80);
+    width: 608px;
+    padding: 10px;
+}
+
+.name {
+    border-radius: 15px;
+    background-color: rgba(255,255,255,.5);
+    font-weight: bold;
+    font-size: 50px;
+    padding: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    min-width:600px;
+    text-align:center;
+}
+
+.quote {
+    font-style: italic;
+}
+
+
+
+/*--------------WEATHER--------------------*/
+.allweather {
+    margin-top:10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(255,255,255,.80);
+    border-radius: 15px;
+    vertical-align: middle;
+    position: relative;
+    padding: 20px;
+    /*min-width:800px;*/
+}
+
+.weathertitle{
+    text-align:center;
+}
+
+.forecast {
+    
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    flex-wrap: nowrap;
+}
+
+.todayweather {
+    width: 400px;
+}
+
+.todayimg {
+    border-radius: 15px;
+    width: 75%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.todaytemp {
+    margin-top: 5px;
+    text-align: center;
+}
+
+.advisory{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+}
+
+.futureweather {
+    text-align: center;
+}
+
+.futureimg {
+    width: 75%;
+    border-radius: 15px;
+    display: inline-block;
+}
+
+.babyweathercontainer {
+    display: inline-block;
+    width: 125px;
+}
+
+.tempbox {
+    border: solid black 1px;
+}
+
+/*--------------TAKE SURVEY---------------------*/
+.fullform {
+    background-color: rgba(255,255,255,.80);
+    border-radius: 15px;
+    margin:auto;
+    margin-top:5px;
+    width:600px;
+    padding:25px;
+}
+
+.formitem{
+    margin:5px;
+}
+
+.formbutton{
+    border-radius:5px;
+}
+
+
+/*--------------SURVEY RESULTS------------------*/
+.surveylink {
+    height: 75px;
+    max-height: 75px;
+    margin: auto;
+    margin-top: 5px;
+    font-size: 35px;
+    background-color: rgba(255,255,255,.40);
+    border-radius: 15px;
+    width: 500px;
+    display: block;
+    cursor:pointer;
+}
+
+.surveycontainer {
+    display: block;
+    width: 500px;
+    margin:auto;
+    margin-top: 5px;
+    padding: 5px;
+    min-width: 500px;
+    background-color: rgba(255,255,255,.40);
+    border-radius: 15px;
+    
+}
+
+.surveyimg {
+    width: 10%;
+    min-width: 150px;
+    border-radius: 15px;
+}
+
+.surveytextcontainer {
+    display:inline-block;
+    vertical-align:top;
+    text-align:left;
+
+}
+
+.surveyname {
+    font-size:20px;
+    font-weight: bold;
+}
+
+
+li {
+    padding-bottom: 4px;
+}
+
+nav {
+    background-color: rgba(142, 204, 112, 0.90);
+    padding: 1px;
+}
+
+    nav ul {
+        width: 97%;
+        display: flex;
+        justify-content: left;
+    }
+
+        nav ul li {
+            background-color: #FFF;
+            border-radius: 8px;
+            list-style: none;
+            text-align: center;
+            flex-grow: 1;
+            padding-top: 5px;
+            margin: 0 10px;
+            max-width: 200px;
+            font-weight: bolder;
+            font-size: large;
+        }
+

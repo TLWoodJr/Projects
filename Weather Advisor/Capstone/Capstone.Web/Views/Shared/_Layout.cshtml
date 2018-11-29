@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/test.css" />
+</head>
+<body background="~/Content/Imgs/movingfield.jpg">
+    <header id="headerbackground">
+        <img src="~/Content/Imgs/logo.png" height=100px/>
+    </header>
+    
+    <nav>
+        <ul>
+            <li class="debug">
+                @Html.ActionLink("Home","Index", "Home")
+            </li>
+            <li class="debug">
+                @Html.ActionLink("Survey Results", "Index", "Survey")
+            </li>
+        </ul>
+        
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

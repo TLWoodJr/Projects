@@ -1,0 +1,40 @@
+﻿@using Capstone.Web.Models
+@model List<string>
+
+@*View that creates HTML for Survey/Submit form page*@
+
+    <form class="debug fullform" method="post" action="@Url.Action("Submit", "Survey")">
+        <div class="debug selectpark formitem">
+            Select park:
+            <select name="ParkName">
+                @foreach (var name in Model)
+                {
+                    <option value="@name">@name</option>
+                }
+            </select>
+        </div>
+        <div class="debug email formitem">
+            @Html.Label("Email:")
+            @Html.TextBox("Email")
+            @Html.ValidationMessage("Email")
+        </div>
+        <div class="debug residence formitem">
+            State of Residence:
+            <select name="ResidenceState">
+                @foreach (var state in SurveyModel.States)
+                {
+                    <option name="ResidenceState" value="@state">@state</option>
+                }
+            </select>
+        </div>
+        <div class="debug activity formitem">
+            Activity Level:
+
+            @Html.RadioButton("ActivityLevel", "Inactive", true) Inactive
+            @Html.RadioButton("ActivityLevel", "Sedentary") Sedentary
+            @Html.RadioButton("ActivityLevel", "Active") Active
+            @Html.RadioButton("ActivityLevel", "Extremely Active") Extremely Active
+
+        </div>
+        <button class="formitem formbutton">Submit</button>
+    </form>

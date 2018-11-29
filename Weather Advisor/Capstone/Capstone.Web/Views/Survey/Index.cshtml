@@ -1,0 +1,19 @@
+﻿@model List<Capstone.Web.Models.FavoriteParkViewModel>
+
+@*View that creates HTML for Survey/Index page*@
+
+<button class="surveybutton surveylink" onclick="location.href='/Survey/Submit'" type="button">Click here to take survey</button>
+
+@foreach (var item in Model)
+{
+    <div class="debug surveycontainer">
+        <a href="@Url.Action("Details","Home", new {parkCode=item.ParkCode})"> 
+            <img class="debug surveyimg" src="~/Content/Imgs/parks/@(item.ParkCode).jpg" alt="park" />
+        </a>
+        <div class="debug surveytextcontainer">
+            <div class="debug surveyname">@item.ParkName</div>
+            <div class="debug surveyvote">Vote count: @item.Votes</div>
+        </div>
+    </div>
+}
+
