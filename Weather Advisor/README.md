@@ -1,2 +1,2 @@
-# Week 9 Pair Exercises - Team 1
+Tech Elevator dynamic web app project (capstone)
 
